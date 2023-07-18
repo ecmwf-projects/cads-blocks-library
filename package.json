@@ -1,8 +1,18 @@
 {
-  "name": "cads-blocks-library",
+  "name": "@ecmwf-projects/cads-blocks-library",
+  "description": "CADS Blocks library for webportal",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ecmwf-projects/cads-blocks-library.git"
+  },
+  "bugs": {
+    "url": "git@github.com:ecmwf-projects/cads-blocks-library/issues"
+  },
+  "homepage": "git@github.com:ecmwf-projects/cads-blocks-library#README",
+  "license": "Apache-2.0",
   "main": "./dist/cads-blocks-library.umd.js",
   "module": "./dist/cads-blocks-library.es.js",
   "exports": {
@@ -45,7 +55,7 @@
     "prettier": "^3.0.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
-    "vite-plugin-dts": "^3.3.1",
+    "vite-plugin-dts": "^1.0.5",
     "vite-plugin-linter": "^2.0.2"
   },
   "peerDependencies": {
@@ -59,11 +69,5 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run eslint",
-      "npm run format"
-    ]
   }
 }

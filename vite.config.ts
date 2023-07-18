@@ -24,7 +24,7 @@ export default defineConfig(configEnv => ({
   build: {
     lib: {
       entry: resolve('src', 'index.ts'),
-      name: 'cads-blocks-library',
+      name: '@ecmwf-projects/cads-blocks-library',
       formats: ['es', 'umd'],
       fileName: (format) => `cads-blocks-library.${format}.js`,
     },
