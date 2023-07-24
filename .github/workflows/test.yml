@@ -14,6 +14,6 @@ jobs:
         with:
           node-version: '16.x'
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm install
       - run: npm test
