@@ -15,9 +15,6 @@ const { EsLinter, linterPlugin } = EsLint
 export default defineConfig((configEnv) => ({
   plugins: [
     react(),
-    dts({
-      include: ['src/**/*'],
-    }),
     linterPlugin({
       include: ['./src}/**/*.{ts,tsx}'],
       linters: [new EsLinter({ configEnv })],
@@ -31,6 +28,7 @@ export default defineConfig((configEnv) => ({
       fileName: (format) => `cads-blocks-library.${format}.js`,
     },
     rollupOptions: {
+      treeshake: false,
       external: Object.keys(packageJson.peerDependencies),
       output: {
         globals: (name) => name,
