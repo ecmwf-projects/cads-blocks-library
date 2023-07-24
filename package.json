@@ -2,7 +2,7 @@
   "name": "@ecmwf-projects/cads-blocks-library",
   "description": "CADS Blocks library for webportal",
   "private": false,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "repository": {
     "type": "git",
