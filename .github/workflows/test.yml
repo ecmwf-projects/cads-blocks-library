@@ -13,5 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
       - run: npm install
       - run: npm test
