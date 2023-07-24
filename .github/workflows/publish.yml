@@ -21,7 +21,7 @@ jobs:
       - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.REGISTRY_TOKEN }}
       - run: npm install
       - run: npm run build
-      - run: npm config delete registry
+      - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
