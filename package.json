@@ -2,7 +2,7 @@
   "name": "@ecmwf-projects/cads-blocks-library",
   "description": "CADS Blocks library for webportal",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "repository": {
     "type": "git",
@@ -33,7 +33,8 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "lint-staged": "npm run lint && npm run format",
-    "test": "jest"
+    "test": "jest",
+    "postversion": "git push --follow-tags"
   },
   "dependencies": {
     "lodash.chunk": "^4.2.0"
