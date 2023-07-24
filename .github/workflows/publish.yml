@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.REGISTRY_TOKEN }}
+      - run: npm install
       - run: npm test
 
   publish-gpr:
