@@ -3,7 +3,6 @@
   "description": "CADS Blocks library for webportal",
   "private": false,
   "version": "0.7.0",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git@github.com:ecmwf-projects/cads-blocks-library.git"
