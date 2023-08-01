@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { BaseButton } from '@ecmwf-projects/cads-ui-library'
 
 import { ButtonBlockInterface, ButtonActions, LayoutSectionBlock } from '../../models'
-import { userAction, isButtonType, isValidAction } from '../../utils'
+import { isButtonType, isValidAction } from '../../utils'
+import { userAction } from '../../utils/user'
 
 type Props = {
   block: ButtonBlockInterface
