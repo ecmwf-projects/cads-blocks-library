@@ -73,7 +73,7 @@ export const Table = ({ block }: { block: TableBlock }) => {
 }
 
 const Container = styled.div`
-  color: ${({ theme }) => theme.colors.dark};
+  color: black;
   display: flex;
   flex-direction: column;
   overflow: auto;
