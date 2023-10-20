@@ -3,10 +3,13 @@ import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 
 import react from '@vitejs/plugin-react'
-import { EsLinter, linterPlugin, } from "vite-plugin-linter";
+import dts from 'vite-plugin-dts'
+import EsLint from 'vite-plugin-linter'
 import typescript from '@rollup/plugin-typescript'
 
 import * as packageJson from './package.json'
+
+const { EsLinter, linterPlugin } = EsLint
 
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
