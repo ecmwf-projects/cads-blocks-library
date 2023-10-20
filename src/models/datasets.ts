@@ -3,6 +3,7 @@ export enum LayoutBlockTypes {
   'button',
   'link',
   'markdown',
+  'html',
   'section',
   'table',
   'thumb-markdown',
@@ -14,6 +15,10 @@ interface GenericBlock {
 }
 
 export interface MarkdownBlockInterface extends GenericBlock {
+  content: string
+}
+
+export interface HtmlBlockInteface extends GenericBlock {
   content: string
 }
 
@@ -38,7 +43,7 @@ export interface TableBlock extends GenericBlock {
 export interface SectionBlock extends GenericBlock {
   title: string
   open: boolean
-  blocks: (MarkdownBlockInterface | LinkBlockInterface | ButtonBlockInterface)[]
+  blocks: (HtmlBlockInteface | MarkdownBlockInterface | LinkBlockInterface | ButtonBlockInterface)[]
 }
 
 export type ImageThumb = {
@@ -79,6 +84,7 @@ export interface ButtonBlockInterface extends GenericBlock {
 
 export type LayoutSectionBlock =
   | MarkdownBlockInterface
+  | HtmlBlockInteface
   | TableBlock
   | ThumbMarkdownBlock
   | LinkBlockInterface
@@ -88,6 +94,7 @@ export type LayoutSectionBlock =
 
 export type LayoutSectionBlocksMix = MarkdownBlockInterface &
   TableBlock &
+  HtmlBlockInteface &
   ThumbMarkdownBlock &
   LinkBlockInterface &
   SectionBlock &

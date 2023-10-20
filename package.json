@@ -23,7 +23,7 @@
     "build": "tsc",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
-    "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc",
+    "format": "prettier --write src/**/*.{ts,tsx} --config ./.prettierrc",
     "preview": "vite preview",
     "prepare": "husky install",
     "lint-staged": "npm run lint && npm run format",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
+    "@ladle/react": "^3.2.2",
     "@rollup/plugin-typescript": "^11.1.2",
     "@testing-library/dom": "^9.3.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -65,7 +66,7 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
-    "vite-plugin-dts": "^1.0.5",
+    "vite-plugin-dts": "^1.7.3",
     "vite-plugin-linter": "^2.0.2"
   },
   "peerDependencies": {

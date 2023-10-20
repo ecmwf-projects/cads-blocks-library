@@ -22,12 +22,15 @@ import {
   ButtonBlockInterface,
   LayoutSectionBlocksMix,
   MarkdownBlockInterface,
+  HtmlBlockInteface,
 } from '../models'
+import { HtmlBlock } from './blocks/HtmlBlock'
 
 const generateBlockByType = {
   ['markdown']: (block: MarkdownBlockInterface, markdownParsingOptions: MarkdownToJSX.Options) => (
     <MarkdownBlock block={block} markdownParsingOptions={markdownParsingOptions} />
   ),
+  ['html']: (block: HtmlBlockInteface) => <HtmlBlock block={block} />,
   ['table']: (block: TableBlock) => <Table block={block} />,
   ['thumb-markdown']: (
     block: ThumbMarkdownBlock,
