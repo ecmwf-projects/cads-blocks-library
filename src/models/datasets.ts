@@ -7,7 +7,7 @@ export enum LayoutBlockTypes {
   'section',
   'table',
   'thumb-markdown',
-  'checkitem'
+  'checkitem',
 }
 
 interface GenericBlock {
@@ -50,7 +50,13 @@ export interface TableBlock extends GenericBlock {
 export interface SectionBlock extends GenericBlock {
   title: string
   open: boolean
-  blocks: (HtmlBlockInteface | CheckItemBlockInterface | MarkdownBlockInterface | LinkBlockInterface | ButtonBlockInterface)[]
+  blocks: (
+    | HtmlBlockInteface
+    | CheckItemBlockInterface
+    | MarkdownBlockInterface
+    | LinkBlockInterface
+    | ButtonBlockInterface
+  )[]
 }
 
 export type ImageThumb = {
