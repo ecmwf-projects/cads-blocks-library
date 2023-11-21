@@ -10,6 +10,7 @@ import {
   ButtonBlock,
   MarkdownBlock,
   ThumbMarkdown,
+  CheckItem,
 } from './blocks'
 
 import {
@@ -23,6 +24,7 @@ import {
   LayoutSectionBlocksMix,
   MarkdownBlockInterface,
   HtmlBlockInteface,
+  CheckItemBlockInterface,
 } from '../models'
 import { HtmlBlock } from './blocks/HtmlBlock'
 
@@ -32,6 +34,7 @@ const generateBlockByType = {
   ),
   ['html']: (block: HtmlBlockInteface) => <HtmlBlock block={block} />,
   ['table']: (block: TableBlock) => <Table block={block} />,
+  ['checkitem']: (block: CheckItemBlockInterface) => <CheckItem block={block} />,
   ['thumb-markdown']: (
     block: ThumbMarkdownBlock,
     markdownParsingOptions: MarkdownToJSX.Options,

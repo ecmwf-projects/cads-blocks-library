@@ -28,6 +28,7 @@
     "prepare": "husky install",
     "lint-staged": "npm run lint && npm run format",
     "test": "jest",
+    "ladle": "ladle serve",
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
@@ -66,7 +67,7 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
-    "vite-plugin-dts": "^1.0.5",
+    "vite-plugin-dts": "^1.7.3",
     "vite-plugin-linter": "^2.0.2"
   },
   "peerDependencies": {
