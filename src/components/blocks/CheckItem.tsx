@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 
-import { CheckItemBlockInterface } from "@src/models"
 import styled from "styled-components"
 import { GenerateBlocks, supportedTypes } from "../GenerateBlocks"
 import { LinkBlock } from "./LinkBlock"
 import { CheckIcon, DownIcon, NAIcon, WarningIcon } from "../icons/EQCIcons"
+import { CheckItemBlockInterface } from "../../models"
 
 /**
  * The check item block.

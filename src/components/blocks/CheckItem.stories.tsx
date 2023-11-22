@@ -1,7 +1,7 @@
 import React from "react"
 
 import { GenerateBlocks } from "../GenerateBlocks";
-import { LayoutSectionBlock } from "@src/models";
+import { LayoutSectionBlock } from "../../models";
 
 const MOCK: LayoutSectionBlock = {
   "blocks": [ {
