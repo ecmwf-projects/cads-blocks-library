@@ -16,9 +16,6 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "jsx": "react-jsx",
-    "paths": {
-      "@src/*": ["src/*"]
-    }
   },
   "include": ["src/**/*"],
   "exclude": ["**/*.spec.*", "node_modules"]
