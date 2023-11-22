@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styled from 'styled-components'
 import { AccordionSingle } from '@ecmwf-projects/cads-ui-library'
@@ -12,16 +12,22 @@ export const Accordion = ({ block }: { block: AccordionBlock }) => {
 
   const isHashSelected = useHashSelected(block.id)
 
-  const value = useMemo(() => {
+  const [open, setOpen] = useState(false)
+  useEffect(() => {
+    let opened = false
     if (isHashSelected) {
-      return block.title
+      opened = true
     }
-    return block.collapsed ? '' : block.title
+    opened = !block.collapsed
+    setOpen(opened)
   }, [block.collapsed, block.title, isHashSelected])
-  
+
   return (<AccordionSingle
     rootProps={{
-      value: value,
+      value: open ? block.title : '',
+      onClick: () => {
+        setOpen(!open)
+      }
     }}
     itemProps={{
       value: block.title,

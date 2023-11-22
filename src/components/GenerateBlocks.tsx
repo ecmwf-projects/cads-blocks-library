@@ -61,7 +61,6 @@ const GenerateBlocks = ({
   blocks: LayoutSectionBlock[] | null
   markdownParsingOptions?: MarkdownToJSX.Options
 }) => {
-
   return (
     <>
       {blocks &&
