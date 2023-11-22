@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 
 import styled from 'styled-components'
 import { AccordionSingle } from '@ecmwf-projects/cads-ui-library'
@@ -6,15 +6,16 @@ import { AccordionSingle } from '@ecmwf-projects/cads-ui-library'
 import { GenerateBlocks } from '../GenerateBlocks'
 
 import type { AccordionBlock } from '../../models'
+import { useHash } from 'src/hooks/useHash'
 
 export const Accordion = ({ block }: { block: AccordionBlock }) => {
 
 
   // Get the current hash
-  const [hash, setHash] = useState<string>()
-  useEffect(() => {
-    setHash(window.location.hash)
-  }, [])
+  const hash = useHash();
+
+  console.log('hash', hash)
+  console.log('Block id', block.id)
 
   // Check if the hash is the same as the block id
   const isHash = hash === `#${block.id}`
@@ -26,6 +27,7 @@ export const Accordion = ({ block }: { block: AccordionBlock }) => {
     }
     return block.collapsed ? '' : block.title
   }, [isHash, block.title, block.collapsed])
+  console.log('Block id', block.id, defaultValue)
 
   return (<AccordionSingle
     rootProps={{
