@@ -62,9 +62,6 @@ const GenerateBlocks = ({
   markdownParsingOptions?: MarkdownToJSX.Options
 }) => {
 
-  // Anchor fixture
-  useAnchor();
-  
   return (
     <>
       {blocks &&
@@ -83,18 +80,13 @@ const GenerateBlocks = ({
         })}
     </>
   )
-};
+}
 
 export { GenerateBlocks, supportedTypes }
 
-const useAnchor = () => {
-
-}
-
-
 const Anchor = styled.a`
-  position: relative; 
-  display: none; 
-  visibility: hidden; 
+  position: relative;
+  display: none;
+  visibility: hidden;
   height: 0;
-`;
+`

@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from 'react'
 
 export const useHashSelected = (targetHash?: string) => {
   const [hash, setHash] = useState<string>()
 
-  const updateHash = () => setHash(getHash());
+  const updateHash = () => setHash(getHash())
 
   useEffect(() => {
     updateHash()
@@ -17,9 +17,9 @@ export const useHashSelected = (targetHash?: string) => {
     if (!targetHash) {
       return false
     }
-    
+
     const firstPart = hash?.split('__')[0]
-    const result = "#" + targetHash === firstPart
+    const result = '#' + targetHash === firstPart
     return result
   }, [hash, targetHash])
 }
