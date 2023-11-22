@@ -43,3 +43,27 @@ yarn version --preminor
 
 yarn version --premajor
 ```
+
+## Publishing a new version
+
+Local package development:
+
+In order to install this package locally (while developing) in the same way as publishing,
+we can package it and install in webportal:
+
+```
+npm run build
+npm pack
+```
+
+This will create a ecmwf-projects-cads-blocks-...-.tgz. Add to the dependencies of cads-webportal:
+
+Something like this:
+
+```
+"dependencies": {
+      "@ecmwf-projects/cads-blocks-library": "file:/path/to/cads-blocks-library/ecmwf-projects-cads-blocks-library-3.0.5.tgz",
+}
+```
+
+Issue yarn install.

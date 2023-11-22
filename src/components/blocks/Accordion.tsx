@@ -6,33 +6,22 @@ import { AccordionSingle } from '@ecmwf-projects/cads-ui-library'
 import { GenerateBlocks } from '../GenerateBlocks'
 
 import type { AccordionBlock } from '../../models'
-import { useHash } from 'src/hooks/useHash'
+import { useHashSelected } from '../../utils/useHashSelected'
 
 export const Accordion = ({ block }: { block: AccordionBlock }) => {
 
+  const isHashSelected = useHashSelected(block.id)
 
-  // Get the current hash
-  const hash = useHash();
-
-  console.log('hash', hash)
-  console.log('Block id', block.id)
-
-  // Check if the hash is the same as the block id
-  const isHash = hash === `#${block.id}`
-
-  // If the hash is the same as the block id, then expand the accordion
-  const defaultValue = useMemo(() => {
-    if (isHash) {
+  const value = useMemo(() => {
+    if (isHashSelected) {
       return block.title
     }
     return block.collapsed ? '' : block.title
-  }, [isHash, block.title, block.collapsed])
-  console.log('Block id', block.id, defaultValue)
-
+  }, [block.collapsed, block.title, isHashSelected])
+  
   return (<AccordionSingle
     rootProps={{
-      id: block.id,
-      defaultValue: defaultValue,
+      value: value,
     }}
     itemProps={{
       value: block.title,

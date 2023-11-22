@@ -27,6 +27,7 @@ import {
   CheckItemBlockInterface,
 } from '../models'
 import { HtmlBlock } from './blocks/HtmlBlock'
+import styled from 'styled-components'
 
 const generateBlockByType = {
   ['markdown']: (block: MarkdownBlockInterface, markdownParsingOptions: MarkdownToJSX.Options) => (
@@ -59,22 +60,41 @@ const GenerateBlocks = ({
 }: {
   blocks: LayoutSectionBlock[] | null
   markdownParsingOptions?: MarkdownToJSX.Options
-}) => (
-  <>
-    {blocks &&
-      blocks.map((block, i) => {
-        if (!generateBlockByType[block.type]) return null
-        return (
-          <React.Fragment key={`${i}_${block.id}`}>
-            {generateBlockByType[block.type](
-              block as LayoutSectionBlocksMix,
-              markdownParsingOptions,
-              blocks,
-            )}
-          </React.Fragment>
-        )
-      })}
-  </>
-)
+}) => {
+
+  // Anchor fixture
+  useAnchor();
+  
+  return (
+    <>
+      {blocks &&
+        blocks.map((block, i) => {
+          if (!generateBlockByType[block.type]) return null
+          return (
+            <React.Fragment key={`${i}_${block.id}`}>
+              <Anchor className="anchor" id={block.id} />
+              {generateBlockByType[block.type](
+                block as LayoutSectionBlocksMix,
+                markdownParsingOptions,
+                blocks,
+              )}
+            </React.Fragment>
+          )
+        })}
+    </>
+  )
+};
 
 export { GenerateBlocks, supportedTypes }
+
+const useAnchor = () => {
+
+}
+
+
+const Anchor = styled.a`
+  position: relative; 
+  display: none; 
+  visibility: hidden; 
+  height: 0;
+`;
