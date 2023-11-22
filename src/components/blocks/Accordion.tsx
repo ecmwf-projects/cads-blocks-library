@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import styled from 'styled-components'
 import { AccordionSingle } from '@ecmwf-projects/cads-ui-library'
@@ -7,10 +7,30 @@ import { GenerateBlocks } from '../GenerateBlocks'
 
 import type { AccordionBlock } from '../../models'
 
-export const Accordion = ({ block }: { block: AccordionBlock }) => (
-  <AccordionSingle
+export const Accordion = ({ block }: { block: AccordionBlock }) => {
+
+
+  // Get the current hash
+  const [hash, setHash] = useState<string>()
+  useEffect(() => {
+    setHash(window.location.hash)
+  }, [])
+
+  // Check if the hash is the same as the block id
+  const isHash = hash === `#${block.id}`
+
+  // If the hash is the same as the block id, then expand the accordion
+  const defaultValue = useMemo(() => {
+    if (isHash) {
+      return block.title
+    }
+    return block.collapsed ? '' : block.title
+  }, [isHash, block.title, block.collapsed])
+
+  return (<AccordionSingle
     rootProps={{
-      defaultValue: block.collapsed ? '' : block.title,
+      id: block.id,
+      defaultValue: defaultValue,
     }}
     itemProps={{
       value: block.title,
@@ -23,7 +43,8 @@ export const Accordion = ({ block }: { block: AccordionBlock }) => (
       <GenerateBlocks blocks={block.blocks} />
     </TabContent>
   </AccordionSingle>
-)
+  )
+}
 
 const AccordionTrigger = styled.h5`
   font-weight: 700;
