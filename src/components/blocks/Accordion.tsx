@@ -12,15 +12,14 @@ export const Accordion = ({ block }: { block: AccordionBlock }) => {
 
   const isHashSelected = useHashSelected(block.id)
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(!block.collapsed)
   useEffect(() => {
-    let opened = false
     if (isHashSelected) {
-      opened = true
+      setOpen(true)
+      return
     }
-    opened = !block.collapsed
-    setOpen(opened)
-  }, [block.collapsed, block.title, isHashSelected])
+    setOpen(!block.collapsed)
+  }, [block.collapsed, isHashSelected])
 
   return (<AccordionSingle
     rootProps={{
