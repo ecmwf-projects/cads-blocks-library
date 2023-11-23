@@ -13,14 +13,6 @@ export const WarningIcon = () => (
   </svg>
 )
 
-export const NAIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 14H19" stroke="#7E7E7E"
-      strokeWidth="1.5" 
-    />
-  </svg>
-)
-
 export const DownIcon = () => (
   <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M1 1L6 6L11.5 1" stroke="#25408F" />

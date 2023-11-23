@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { GenerateBlocks, supportedTypes } from "../GenerateBlocks"
 import { LinkBlock } from "./LinkBlock"
-import { CheckIcon, DownIcon, NAIcon, WarningIcon } from "../icons/EQCIcons"
+import { CheckIcon, DownIcon, WarningIcon } from "../icons/EQCIcons"
 import { CheckItemBlockInterface } from "../../models"
 
 /**
@@ -73,7 +73,7 @@ const useSwitchStatus = (status?: string) => {
       return <WarningIcon />
 
     case 'NA':
-      return <NAIcon />
+      return null  // No icon for NA
     default:
       return <WarningIcon />
   }
