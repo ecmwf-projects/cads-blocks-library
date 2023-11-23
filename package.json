@@ -2,7 +2,7 @@
   "name": "@ecmwf-projects/cads-blocks-library",
   "description": "CADS Blocks library for webportal",
   "private": false,
-  "version": "2.0.0-0",
+  "version": "3.0.12",
   "repository": {
     "type": "git",
     "url": "git@github.com:ecmwf-projects/cads-blocks-library.git"
@@ -28,6 +28,7 @@
     "prepare": "husky install",
     "lint-staged": "npm run lint && npm run format",
     "test": "jest",
+    "ladle": "ladle serve",
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
@@ -36,7 +37,6 @@
   "devDependencies": {
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
-    "@ladle/react": "^3.2.2",
     "@rollup/plugin-typescript": "^11.1.2",
     "@testing-library/dom": "^9.3.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -66,12 +66,12 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.0",
-    "vite-plugin-dts": "^1.0.5",
+    "vite-plugin-dts": "^1.7.3",
     "vite-plugin-linter": "^2.0.2"
   },
   "peerDependencies": {
     "@ecmwf-projects/cads-ui-library": "7.0.4",
-    "next": "13.2.4",
+    "next": "13.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.11"

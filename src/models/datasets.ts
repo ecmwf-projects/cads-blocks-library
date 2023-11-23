@@ -7,6 +7,7 @@ export enum LayoutBlockTypes {
   'section',
   'table',
   'thumb-markdown',
+  'checkitem',
 }
 
 interface GenericBlock {
@@ -16,6 +17,12 @@ interface GenericBlock {
 
 export interface MarkdownBlockInterface extends GenericBlock {
   content: string
+}
+
+export interface CheckItemBlockInterface extends GenericBlock, LinkBlockInterface {
+  status?: string
+  collapsed?: boolean
+  blocks?: CheckItemBlockInterface[]
 }
 
 export interface HtmlBlockInteface extends GenericBlock {
@@ -43,7 +50,13 @@ export interface TableBlock extends GenericBlock {
 export interface SectionBlock extends GenericBlock {
   title: string
   open: boolean
-  blocks: (HtmlBlockInteface | MarkdownBlockInterface | LinkBlockInterface | ButtonBlockInterface)[]
+  blocks: (
+    | HtmlBlockInteface
+    | CheckItemBlockInterface
+    | MarkdownBlockInterface
+    | LinkBlockInterface
+    | ButtonBlockInterface
+  )[]
 }
 
 export type ImageThumb = {
@@ -55,12 +68,12 @@ export interface LinkBlockInterface extends GenericBlock {
   title: string
   description?: string
   href: string
-  ['new-window']: boolean
+  ['new-window']?: boolean
 }
 
 export interface AccordionBlock extends GenericBlock {
   title: string
-  collapsed: boolean
+  collapsed?: boolean
   blocks: LayoutSectionBlock[]
 }
 
@@ -91,6 +104,7 @@ export type LayoutSectionBlock =
   | SectionBlock
   | AccordionBlock
   | ButtonBlockInterface
+  | CheckItemBlockInterface
 
 export type LayoutSectionBlocksMix = MarkdownBlockInterface &
   TableBlock &
@@ -99,7 +113,8 @@ export type LayoutSectionBlocksMix = MarkdownBlockInterface &
   LinkBlockInterface &
   SectionBlock &
   AccordionBlock &
-  ButtonBlockInterface
+  ButtonBlockInterface &
+  CheckItemBlockInterface
 
 export interface LayoutSection {
   id: string

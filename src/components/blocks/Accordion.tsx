@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styled from 'styled-components'
 import { AccordionSingle } from '@ecmwf-projects/cads-ui-library'
@@ -6,11 +6,27 @@ import { AccordionSingle } from '@ecmwf-projects/cads-ui-library'
 import { GenerateBlocks } from '../GenerateBlocks'
 
 import type { AccordionBlock } from '../../models'
+import { useHashSelected } from '../../utils/useHashSelected'
 
-export const Accordion = ({ block }: { block: AccordionBlock }) => (
-  <AccordionSingle
+export const Accordion = ({ block }: { block: AccordionBlock }) => {
+
+  const isHashSelected = useHashSelected(block.id)
+
+  const [open, setOpen] = useState(!block.collapsed)
+  useEffect(() => {
+    if (isHashSelected) {
+      setOpen(true)
+      return
+    }
+    setOpen(!block.collapsed)
+  }, [block.collapsed, isHashSelected])
+
+  return (<AccordionSingle
     rootProps={{
-      defaultValue: block.collapsed ? '' : block.title,
+      value: open ? block.title : '',
+      onClick: () => {
+        setOpen(!open)
+      }
     }}
     itemProps={{
       value: block.title,
@@ -23,7 +39,8 @@ export const Accordion = ({ block }: { block: AccordionBlock }) => (
       <GenerateBlocks blocks={block.blocks} />
     </TabContent>
   </AccordionSingle>
-)
+  )
+}
 
 const AccordionTrigger = styled.h5`
   font-weight: 700;

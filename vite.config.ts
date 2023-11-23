@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
-import EsLint from 'vite-plugin-linter'
+import * as EsLint from 'vite-plugin-linter'
 import typescript from '@rollup/plugin-typescript'
 
 import * as packageJson from './package.json'
@@ -41,5 +41,9 @@ export default defineConfig((configEnv) => ({
         }),
       ],
     },
+  },
+  // 
+  define: { // https://github.com/vitejs/vite/issues/1973
+    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
   },
 }))
