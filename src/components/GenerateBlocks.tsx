@@ -65,7 +65,9 @@ const GenerateBlocks = ({
     <>
       {blocks &&
         blocks.map((block, i) => {
-          if (!generateBlockByType[block.type]) return null
+          if (!generateBlockByType[block.type]) {
+            return null
+          }
           return (
             <React.Fragment key={`${i}_${block.id}`}>
               <Anchor className="anchor" id={block.id} />

@@ -35,7 +35,7 @@ describe('Generate layout from JSON', () => {
     expect(h1?.id).toBe(`abstract-1`)
     expect(h1?.innerHTML).toBe(`Here's a Heading`)
 
-    const anchor = element.container.querySelector('a')
+    const anchor = element.container.querySelector('a:not(.anchor)')
     expect(anchor?.innerHTML).toBe(`link`)
     expect(anchor).toHaveAttribute('href', 'https://google.com')
 
@@ -69,7 +69,7 @@ describe('Generate layout from JSON', () => {
 
       screen.getByText('title text section')
       screen.getByText('description text example')
-      const link = document.querySelector('a')
+      const link = document.querySelector('a:not(.anchor)') as HTMLAnchorElement
       expect(link?.href).toBe('https://support.ecmwf.int/')
       expect(link?.target).toBe('_blank')
     })
@@ -127,7 +127,9 @@ describe('Generate layout from JSON', () => {
             ]}
           />,
         )
-        expect(element.container).toBeEmptyDOMElement()
+        
+        // Check that we only have an anchor
+        expect(element.container.childElementCount).toBe(1)
       })
     })
   })
