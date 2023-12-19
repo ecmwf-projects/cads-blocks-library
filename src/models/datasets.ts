@@ -63,7 +63,7 @@ export interface SectionBlock extends GenericBlock {
 export interface RelatedBlock extends GenericBlock {
   title: string
   open: boolean
-  rel: string;
+  rel: string
 }
 
 export type ImageThumb = {
