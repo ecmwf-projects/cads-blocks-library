@@ -45,6 +45,7 @@ const generateBlockByType = {
   ),
   ['link']: (block: LinkBlockInterface) => <LinkBlock block={block} />,
   ['accordion']: (block: AccordionBlock) => <Accordion block={block} />,
+  ['related_entries']: () => null,
   ['button']: (
     block: ButtonBlockInterface,
     _: MarkdownToJSX.Options,
