@@ -5,6 +5,7 @@ export enum LayoutBlockTypes {
   'markdown',
   'html',
   'section',
+  'related_entries',
   'table',
   'thumb-markdown',
   'checkitem',
@@ -57,6 +58,12 @@ export interface SectionBlock extends GenericBlock {
     | LinkBlockInterface
     | ButtonBlockInterface
   )[]
+}
+
+export interface RelatedBlock extends GenericBlock {
+  title: string
+  open: boolean
+  rel: string;
 }
 
 export type ImageThumb = {
