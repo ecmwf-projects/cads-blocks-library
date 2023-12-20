@@ -70,7 +70,7 @@
     "vite-plugin-linter": "^2.0.2"
   },
   "peerDependencies": {
-    "@ecmwf-projects/cads-ui-library": "7.0.4",
+    "@ecmwf-projects/cads-ui-library": "8.0.11",
     "next": "13.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
