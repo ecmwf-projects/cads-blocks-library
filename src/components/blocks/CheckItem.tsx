@@ -30,18 +30,23 @@ export const CheckItem = ({
           <LinkBlock
             block={block}
           />
-          <LinkStatus status={block.status}></LinkStatus>
+          <LinkStatus status={block.status}/>
         </LinkTextWrapper>
-        <div
+        <LinkButton
+          aria-label={
+            isExpanded ? 'Collapse' : 'Expand'
+          }
           onClick={() => setIsExpanded(!isExpanded)}>{
-            isExpandable ? <ExpandIcon state={isExpanded} /> : null}</div>
+            isExpandable ? <ExpandIcon state={isExpanded} /> : null}</LinkButton>
       </LinkWrapper>
       {isExpandable && (
         <Content data-stylizable="block checkitem-content"
           className={
             isExpanded ? 'expanded' : ''
           }>
-          <GenerateBlocks blocks={supportedBlocks} />
+          {isExpanded && (
+            <GenerateBlocks blocks={supportedBlocks} />
+          )}
         </Content>
       )}
     </Wrapper>
@@ -58,7 +63,11 @@ const ExpandIcon = ({
       transform: state ? 'rotate(180deg)' : 'rotate(0deg)',
     }}
     >
-      <DownIcon />
+      <DownIcon 
+        title={
+          state ? 'Collapse' : 'Expand'
+        }
+      />
     </ExpandIconWrapper>
   )
 }
@@ -96,6 +105,14 @@ const LinkStatus = (
 
 const ExpandIconWrapper = styled.div`
   cursor: pointer;
+`
+
+const LinkButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
 `
 
 const Wrapper = styled.section`
